@@ -1,0 +1,20 @@
+
+server:
+  port : 9191
+
+spring:
+
+   
+
+
+  cloud:
+    gateway:
+      routes:
+        - id: USER-SERVICE
+          uri: localhost:9090
+          predicates:
+            - Path=/login/**
+        - id: PROFILE-SERVICE
+          uri: localhost:8083
+          predicates:
+            - Path=/profile/**
